@@ -129,13 +129,23 @@
   // 兜底：即使 IntersectionObserver 没触发，也不让内容一直隐身
   setTimeout(() => document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in")), 1500);
 
-  // 背景龙娘随滚动轻微下沉（视差）
-  const dragonEl = document.getElementById("dragon");
-  if (dragonEl && !reduce) {
-    addEventListener("scroll", () => {
-      const s = Math.min(scrollY, 1400);
-      dragonEl.style.transform = `translateY(${(s * 0.05).toFixed(1)}px)`;
-    }, { passive: true });
+  // 背景人物：滚轮视差（比页面慢，产生层次）
+  const bgFig = document.getElementById("bgFigure");
+  if (bgFig) {
+    if (reduce) {
+      bgFig.style.transform = "translateY(-50%)";
+    } else {
+      const base = "translateY(-50%)";
+      let cur = 0;
+      let target = 0;
+      const loop = () => {
+        target = Math.min(scrollY, 6000) * 0.12;
+        cur += (target - cur) * 0.12;
+        bgFig.style.transform = base + " translateY(" + cur.toFixed(1) + "px)";
+        requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+    }
   }
 
   // 鲸鱼偶尔路过
