@@ -83,11 +83,10 @@ to   { transform: translateY(-10px); }
 
 .hero {
   position: relative;
-  min-height: min(64vh, 600px);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
-  padding: 48px 0;
+  padding: 86px 0 26px;
 }
 
 .hero::after {
@@ -155,12 +154,7 @@ to   { transform: translateY(-10px); }
   to { transform: translateY(-16px); }
 }
 
-.banner-strip {
-  position: relative;
-  z-index: 2;
-  width: min(var(--max), calc(100% - 48px));
-  margin: 6px auto 0;
-}
+.banner-strip { display: none; }
 
 .banner-strip img {
   width: 100%;
