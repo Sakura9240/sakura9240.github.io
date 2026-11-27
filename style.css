@@ -61,13 +61,41 @@ body {
 }
 
 /* ---------- hero ---------- */
+.bg-figure {
+  position: fixed;
+  right: -5vw;
+  bottom: -4vh;
+  width: min(50vw, 720px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.58;
+  filter: drop-shadow(0 0 70px rgba(140, 110, 255, 0.28));
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.45) 22%, #000 46%), linear-gradient(0deg, transparent 0%, #000 14%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.45) 22%, #000 46%), linear-gradient(0deg, transparent 0%, #000 14%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  will-change: transform;
+}
+
+.bg-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: figureFloat 16s ease-in-out infinite alternate;
+}
+
+@keyframes figureFloat {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-10px); }
+}
+
 .hero {
   position: relative;
-  min-height: min(76vh, 720px);
+  min-height: min(72vh, 660px);
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 36px 0;
+  padding: 40px 0;
 }
 
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
@@ -339,12 +367,9 @@ html.js .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0
 html.js .reveal.in { opacity: 1; transform: none; }
 
 @media (max-width: 860px) {
-  .hero { min-height: 64vh; }
-  .hero-bg img { object-position: 64% center; }
-  .hero-grad {
-    background:
-      linear-gradient(180deg, rgba(13, 11, 30, 0.35) 0%, rgba(13, 11, 30, 0.72) 58%, #0d0b1e 100%);
-  }
+  .hero { min-height: 62vh; }
+  .bg-figure { width: 86vw; right: -30vw; bottom: -2vh; opacity: 0.30; }
+
   .dragon { display: none; }
   .cards { grid-template-columns: 1fr; }
   section { padding: 40px 0; }
