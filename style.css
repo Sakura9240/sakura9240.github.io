@@ -93,7 +93,7 @@ body {
     linear-gradient(180deg, rgba(13, 11, 30, 0.55) 0%, transparent 22%, transparent 72%, #0d0b1e 100%);
 }
 
-.hero-inner { position: relative; z-index: 2; width: 100%; }
+.hero-inner { position: relative; z-index: 2; }
 
 .hero-copy { max-width: 620px; position: relative; z-index: 3; }
 
@@ -148,10 +148,10 @@ body {
 }
 
 .eyebrow {
-  margin: 0 0 10px;
-  font-size: 12px;
-  letter-spacing: 0.42em;
-  color: var(--dim);
+  margin: 0 0 12px;
+  font-size: 13px;
+  letter-spacing: 0.40em;
+  color: #cfc8f0;
   text-transform: uppercase;
 }
 
