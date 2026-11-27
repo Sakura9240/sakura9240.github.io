@@ -1,5 +1,6 @@
-// 夜空星星 / 流星 / 光标微光 / 滚动浮现 / 鲸鱼偶尔路过
+﻿// 夜空星星 / 流星 / 光标微光 / 滚动浮现 / 鲸鱼偶尔路过
 (() => {
+  document.documentElement.classList.add("js");
   const canvas = document.getElementById("sky");
   const ctx = canvas.getContext("2d");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -125,6 +126,8 @@
     { threshold: 0.16 },
   );
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  // 兜底：即使 IntersectionObserver 没触发，也不让内容一直隐身
+  setTimeout(() => document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in")), 1500);
 
   // 鲸鱼偶尔路过
   const whale = document.getElementById("whale");
