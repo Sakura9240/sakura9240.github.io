@@ -129,6 +129,15 @@
   // 兜底：即使 IntersectionObserver 没触发，也不让内容一直隐身
   setTimeout(() => document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in")), 1500);
 
+  // 背景龙娘随滚动轻微下沉（视差）
+  const dragonEl = document.getElementById("dragon");
+  if (dragonEl && !reduce) {
+    addEventListener("scroll", () => {
+      const s = Math.min(scrollY, 1400);
+      dragonEl.style.transform = `translateY(${(s * 0.05).toFixed(1)}px)`;
+    }, { passive: true });
+  }
+
   // 鲸鱼偶尔路过
   const whale = document.getElementById("whale");
   if (whale && !reduce) {
