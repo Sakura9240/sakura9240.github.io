@@ -71,13 +71,15 @@ body {
   position: fixed;
   right: -8vw;
   bottom: -10vh;
-  width: min(42vw, 680px);
+  width: min(46vw, 720px);
   z-index: 1;
   pointer-events: none;
-  opacity: 0.16;
+  opacity: 0.34;
   filter: drop-shadow(0 0 60px rgba(150, 120, 255, 0.25));
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 18%, #000 42%);
-  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 18%, #000 42%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.55) 26%, #000 58%), linear-gradient(0deg, transparent 0%, #000 16%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.55) 26%, #000 58%), linear-gradient(0deg, transparent 0%, #000 16%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
   will-change: transform;
 }
 
